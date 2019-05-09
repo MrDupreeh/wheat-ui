@@ -16,22 +16,22 @@ class Home extends Component {
         </div>
         <div style={{ backgroundColor: "#f5f5f5" }}>
           <div className={"wrapper"}>
-            <div style={{width:600}}>
+            <div style={{width:800}}>
               <Carousel autoplay effect="fade">
                 <div>
-                  <img src={banner1} width="600" height="300" alt="" />
+                  <img src={banner1} width="800" height="300" alt="" />
                 </div>
                 <div>
-                  <img src={banner2} width="600" height="300" alt="" />
+                  <img src={banner2} width="800" height="300" alt="" />
                 </div>
                 <div>
-                  <img src={banner3} width="600" height="300" alt="" />
+                  <img src={banner3} width="800" height="300" alt="" />
                 </div>
                 <div>
-                  <img src={banner4} width="600" height="300" alt="" />
+                  <img src={banner4} width="800" height="300" alt="" />
                 </div>
                 <div>
-                  <img src={banner5} width="600" height="300" alt="" />
+                  <img src={banner5} width="800" height="300" alt="" />
                 </div>
               </Carousel>
             </div>
