@@ -1,0 +1,74 @@
+.banner {
+  display: flex;
+}
+
+.tab-container .ant-tabs-bar .ant-tabs-tab {
+  margin-right: 12px;
+}
+.tab-container a{
+  color: #929292;
+}
+
+.tab-container a:hover{
+  color: #1890ff;
+}
+.ant-tabs .ant-tabs-top-content>.ant-tabs-tabpane {
+  padding-left: 12px;
+}
+
+.ant-card-grid {
+  padding: 6px;
+}
+
+.news {
+  display: flex;
+  padding: 24px;
+  background-color: #fff;
+  margin-bottom: 24px;
+}
+
+.news span {
+  color: #ffd700;
+}
+
+.newsList {
+  position: relative;
+  transition: all 1s;
+}
+
+.newsList h2 {
+  transition: all 1s;
+  margin: 0;
+}
+.newsList p{
+  color:#929292;
+}
+.newsList:hover h2 {
+  color: #ffd700;
+}
+.newsText{
+  width: 600px;
+  height: 100px;
+}
+.newsContent {
+  width: 752px;
+  height: 100px;
+  overflow: hidden;
+}
+
+.newsContent ul {
+  margin-left: 24px;
+}
+
+.newsContent li {
+  display: flex;
+}
+
+.newsContent li div {
+  margin-left: 24px;
+}
+
+.newsContent li img {
+  width: 150px;
+  height: 100px;
+}
