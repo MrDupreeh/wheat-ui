@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Cascader, Icon } from "antd";
+import { Link } from "react-router-dom";
 import "./index.css";
 import "../../common.css";
 const options = [
@@ -74,6 +75,9 @@ class Nav extends Component {
             </li>
           </ul>
           <ul style={{ display: "flex", float: "right" }} className={"right"}>
+            <li>
+              <Link to="/home">麦趣网首页</Link>
+            </li>
             {/* <li>
               <Icon type="shopping-cart" style={{ color: "#ffd700" }} /> 购物车
             </li> */}

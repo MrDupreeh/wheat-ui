@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import $ from "jquery";
 import RecommendModelImg1 from "../../images/recommentModel/1.webp";
 import RecommendModelImg2 from "../../images/recommentModel/2.webp";
 import RecommendModelImg3 from "../../images/recommentModel/3.webp";
@@ -128,6 +127,9 @@ class RecommendModel extends Component {
   componentDidMount() {
     this.randomNumber();
   }
+  componentWillUnmount(){
+      clearTimeout(this.state.timer);
+  }
   changeItem = () => {
     this.setState({
       loading: true
@@ -159,7 +161,6 @@ class RecommendModel extends Component {
   };
   render() {
     const { imgList } = this.state;
-    console.log(imgList);
     const { title } = this.props;
     return (
       <div className={"model"}>

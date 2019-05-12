@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { Avatar, Button, Card, Tabs, Icon ,Divider} from "antd";
+import { Avatar, Button, Card, Tabs, Icon, Divider } from "antd";
 import $ from "jquery";
+import { Link } from "react-router-dom";
 import "antd/dist/antd.css";
 import "./index.css";
 import SearchTab from "../../component/SearchTab";
@@ -52,7 +53,6 @@ class Home extends Component {
                 style={{
                   textAlign: "center",
                   width: 244,
-
                   padding: "24px 12px",
                   margin: "24px 0 24px 12px",
                   backgroundColor: "#fff"
@@ -65,7 +65,9 @@ class Home extends Component {
                 <br />
                 你好，快来登录吧~
                 <br />
-                <Button type="primary">登录</Button>
+                <Link to="/">
+                  <Button type="primary">登录</Button>
+                </Link>
                 <Button
                   type="primary"
                   style={{ marginLeft: "20px", marginTop: 12 }}
@@ -161,52 +163,54 @@ class Home extends Component {
               </div>
             </div>
             {/* 头条部分 */}
-            <div className={"news"}>
-              <span style={{ fontSize: 32 }}>
-                <Icon type="rise" />
-                &nbsp;麦趣头条
-              </span>
-              <div className={"newsContent"}>
-                <ul className={"newsList"}>
-                  <li>
-                    <img src={newsImg1} alt="" />
-                    <div className={"newsText"}>
-                      <h2>图书乐器预售会场 好书不容错过</h2>
-                      <p>
-                        活动时间从10月20日-11月10日，活动期间图书乐器会场可领取天猫双11购物津贴，每满400减50，还有店铺定金翻倍、领券再减优惠，更有电子书满30-15/20-10品类优惠券可领，中华商务图书、中信图书、吉林出版集团以及一些乐器店铺活动
-                      </p>
-                    </div>
-                  </li>
-                  <li>
-                    <img src={newsImg2} alt="" />
-                    <div className={"newsText"}>
-                      <h2>万台汽车"一口价"特卖</h2>
-                      <p>
-                        以沃尔沃V60Polestar为例，价格直降19万，一口价39.99万。路虎极光新尚版特卖一口价26.59万。在双11当天支付尾款，去到就近的销售网点，即可成功购车。
-                      </p>
-                    </div>
-                  </li>
-                  <li>
-                    <img src={newsImg3} alt="" />
-                    <div className={"newsText"}>
-                      <h2>【早报】小米魅族今天发新机，你怎么选？</h2>
-                      <p>
-                        在距离发布会召开的前两天，小米才正式宣布MIX3新品发布会场地设置在了故宫，将于10月25日，也就是今天下午两点正式发布大家期待已久的小米MIX3。小米也成了第一家在故宫开新品发布会的国产手机厂商。
-                      </p>
-                    </div>
-                  </li>
-                  <li>
-                    <img src={newsImg4} alt="" />
-                    <div className={"newsText"}>
-                      <h2>司马小忽悠のlolita—万圣节茶会</h2>
-                      <p>
-                        万圣节快到啦～怎么能不办一个lolita的聚会呢。于是上周日和朋友一起在北京丽思卡尔顿酒店组了一个小party～和各位可爱的姑娘们一起度过了一个超级愉快的下午。
-                      </p>
-                    </div>
-                  </li>
-                </ul>
+            <Link to="/news">
+              <div className={"news"}>
+                <span style={{ fontSize: 32 }}>
+                  <Icon type="rise" />
+                  &nbsp;麦趣头条
+                </span>
+                <div className={"newsContent"}>
+                  <ul className={"newsList"}>
+                    <li>
+                      <img src={newsImg1} alt="" />
+                      <div className={"newsText"}>
+                        <h2>图书乐器预售会场 好书不容错过</h2>
+                        <p>
+                          活动时间从10月20日-11月10日，活动期间图书乐器会场可领取天猫双11购物津贴，每满400减50，还有店铺定金翻倍、领券再减优惠，更有电子书满30-15/20-10品类优惠券可领，中华商务图书、中信图书、吉林出版集团以及一些乐器店铺活动
+                        </p>
+                      </div>
+                    </li>
+                    <li>
+                      <img src={newsImg2} alt="" />
+                      <div className={"newsText"}>
+                        <h2>万台汽车"一口价"特卖</h2>
+                        <p>
+                          以沃尔沃V60Polestar为例，价格直降19万，一口价39.99万。路虎极光新尚版特卖一口价26.59万。在双11当天支付尾款，去到就近的销售网点，即可成功购车。
+                        </p>
+                      </div>
+                    </li>
+                    <li>
+                      <img src={newsImg3} alt="" />
+                      <div className={"newsText"}>
+                        <h2>【早报】小米魅族今天发新机，你怎么选？</h2>
+                        <p>
+                          在距离发布会召开的前两天，小米才正式宣布MIX3新品发布会场地设置在了故宫，将于10月25日，也就是今天下午两点正式发布大家期待已久的小米MIX3。小米也成了第一家在故宫开新品发布会的国产手机厂商。
+                        </p>
+                      </div>
+                    </li>
+                    <li>
+                      <img src={newsImg4} alt="" />
+                      <div className={"newsText"}>
+                        <h2>司马小忽悠のlolita—万圣节茶会</h2>
+                        <p>
+                          万圣节快到啦～怎么能不办一个lolita的聚会呢。于是上周日和朋友一起在北京丽思卡尔顿酒店组了一个小party～和各位可爱的姑娘们一起度过了一个超级愉快的下午。
+                        </p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
               </div>
-            </div>
+            </Link>
             {/* 推荐板 */}
             <div
               style={{
@@ -220,10 +224,12 @@ class Home extends Component {
               <RecommendModel title="猜你喜欢" />
               <RecommendModel title="热卖单品" />
             </div>
-            <Divider><span style={{color:'#929292'}}>End</span></Divider>
+            <Divider style={{ paddingBottom: "12px" }}>
+              <span style={{ color: "#929292" }}>End</span>
+            </Divider>
           </div>
         </div>
-      <Footer />
+        <Footer />
       </div>
     );
   }

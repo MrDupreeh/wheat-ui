@@ -8,7 +8,7 @@ class SearchTab extends Component {
   render() {
     return (
       <div className={"searchTab"}>
-        <Link to="/">
+        <Link to="/home">
           <img src={Logo} alt='麦趣'/>
         </Link>
         <div>

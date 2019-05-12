@@ -1,0 +1,51 @@
+.newsPage {
+    background-color: #f5f5f5;
+    margin-bottom: 24px;
+}
+
+.newsPage .title {
+    padding: 12px 0;
+    background-color: #ffd700;
+    font-weight: bold;
+}
+
+.newsPage .title span {
+    color: #fff;
+}
+
+.newsPage .ant-tabs-tab {
+    margin-left: 24px !important;
+    margin-right: 24px !important;
+}
+
+.newsPage .newsPageList {
+    width: 810px;
+    padding-bottom: 24px;
+    background-color: #fff;
+}
+
+.newsPage .newsPageList .ant-list-item {
+    cursor: pointer;
+    align-items: initial;
+    padding: 24px;
+}
+
+.newsPage .newsPageList .ant-list-item:hover h3 {
+    color: #FF6347;
+}
+
+.newsPage .newsRanking {
+    width: 330px;
+    height: 694px;
+    background-color: #fff;
+    padding: 24px;
+}
+
+.newsPage .newsRanking .newsRankingItem {
+    cursor: pointer;
+    margin-bottom: 24px;
+}
+
+.newsPage .newsRanking .newsRankingItem:hover h4 {
+    color: #FF6347;
+}
