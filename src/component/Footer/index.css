@@ -10,7 +10,9 @@
     background-color: #929292;
 }
 
-.footer a {
+.footer i {
+    cursor: pointer;
+    font-style: normal;
     color: #666;
 }
 

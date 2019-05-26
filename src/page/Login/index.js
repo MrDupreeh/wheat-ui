@@ -24,12 +24,15 @@ class Login extends Component {
     const { username, password } = this.state;
 
     if (username === "admin" && password === "123456") {
-      this.setState({ loading: true });
-      this.state.timer = setTimeout(function() {
-        sessionStorage.setItem("user", "大鹏爱吃鱼");
-        message.success("登陆成功");
-        window.location.href = "http://localhost:3000/home";
-      }, 2000);
+      this.setState({
+        loading: true,
+        timer: setTimeout(function() {
+          sessionStorage.setItem("userName", "大鹏爱吃鱼");
+          message.success("登陆成功");
+          window.location.href = "http://localhost:3000/";
+        }, 2000)
+      });
+
     } else if (username !== "admin" || password !== "123456") {
       message.error("用户名或密码错误");
     }
@@ -46,6 +49,9 @@ class Login extends Component {
   passwordChange = e => {
     this.setState({ password: e.target.value });
   };
+  stopA= e=>{
+    e.preventDefault()
+  }
   render() {
     const {
       username,
@@ -150,8 +156,8 @@ class Login extends Component {
                     marginTop: 44
                   }}
                 >
-                  <a>忘记密码</a>
-                  <a style={{ marginRight: 12 }}>立即注册</a>
+                  <a href='/' onClick={this.stopA}>忘记密码</a>
+                  <a href='/' style={{ marginRight: 12 }} onClick={this.stopA}>立即注册</a>
                 </div>
               </div>
             </div>

@@ -38,3 +38,6 @@ li:nth-child(6) {
 .model li:hover{
     border: 1px solid #ffd700;
 }
+.itemBox p{
+    color: rgba(0, 0, 0, 0.65)
+}

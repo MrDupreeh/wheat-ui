@@ -1,0 +1,36 @@
+.introducation-left {
+  margin-right: 24px;
+}
+.introducation-left-item {
+  margin-bottom: 16px;
+}
+.introducation-left-item span {
+  color: #ff0000;
+}
+.introducation-left-item h5 {
+  word-break: break-all;
+}
+.introducation-left-item img {
+  margin-left: 10px;
+}
+
+.introducation-right table {
+  width: 100%;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.introducation-right th {
+  height: 30px;
+  background:#ffd700;
+  text-align: left;
+  vertical-align: middle;
+  text-indent: 5px;
+}
+.introducation-right td {
+  padding: 3px 5px;
+  border: 1px solid #ddd;
+  color: #666;
+}

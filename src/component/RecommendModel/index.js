@@ -19,6 +19,7 @@ import RecommendModelImg17 from "../../images/recommentModel/17.webp";
 import RecommendModelImg18 from "../../images/recommentModel/18.webp";
 import RecommendModelImg19 from "../../images/recommentModel/19.webp";
 import RecommendModelImg20 from "../../images/recommentModel/20.webp";
+import { Link } from "react-router-dom";
 import { Spin } from "antd";
 import "./index.css";
 const titleExp = {
@@ -127,36 +128,33 @@ class RecommendModel extends Component {
   componentDidMount() {
     this.randomNumber();
   }
-  componentWillUnmount(){
-      clearTimeout(this.state.timer);
+  componentWillUnmount() {
+    clearTimeout(this.state.timer);
   }
   changeItem = () => {
     this.setState({
-      loading: true
+      loading: true,
+      timer: setTimeout(() => {
+        this.randomNumber();
+        this.setState({
+          loading: false
+        });
+      }, 1000)
     });
-
-    this.state.timer = setTimeout(() => {
-      this.randomNumber();
-      this.setState({
-        loading: false
-      });
-    }, 1000);
   };
   randomNumber = () => {
     let imgList = [];
     for (var i = 0; i < 6; i++) {
       imgList[i] = imgLists[Math.ceil(Math.random() * 20)];
     }
-    //正则验证数组内是否有重复元素，若有就不渲染
-    const flag = /(\x0f[^\x0f]+)\x0f[\s\S]*\1/.test(
-      "\x0f" + imgList.join("\x0f\x0f") + "\x0f"
-    );
-    if (flag) {
+
+    let set = new Set(imgList);
+    imgList = Array.from(set);
+
+    if (imgList.length !== 6) {
       this.randomNumber();
     } else {
-      this.setState({
-        imgList
-      });
+      this.setState({ imgList });
     }
   };
   render() {
@@ -178,9 +176,12 @@ class RecommendModel extends Component {
               </span>
               &nbsp;
               <span style={{ color: "#929292" }}>{titleExp[title][0]}</span>
-              <a style={{ float: "right" }} onClick={this.changeItem}>
+              <span
+                style={{ float: "right", cursor: "pointer", color: "#1890ff" }}
+                onClick={this.changeItem}
+              >
                 换一批
-              </a>
+              </span>
             </div>
           )}
         </div>
@@ -188,34 +189,46 @@ class RecommendModel extends Component {
           {imgList[0] && (
             <ul className={"itemBox"}>
               <li>
-                <img src={imgList[0][0]} alt="" />
-                <h3>{imgList[0][1]}</h3>
-                <p>{imgList[0][2]}</p>
+                <Link to="/detail">
+                  <img src={imgList[0][0]} alt="" />
+                  <h3>{imgList[0][1]}</h3>
+                  <p>{imgList[0][2]}</p>
+                </Link>
               </li>
               <li>
-                <img src={imgList[1][0]} alt="" />
-                <h3>{imgList[1][1]}</h3>
-                <p>{imgList[1][2]}</p>
+                <Link to="/detail">
+                  <img src={imgList[1][0]} alt="" />
+                  <h3>{imgList[1][1]}</h3>
+                  <p>{imgList[1][2]}</p>
+                </Link>
               </li>
               <li>
-                <img src={imgList[2][0]} alt="" />
-                <h3>{imgList[2][1]}</h3>
-                <p>{imgList[2][2]}</p>
+                <Link to="/detail">
+                  <img src={imgList[2][0]} alt="" />
+                  <h3>{imgList[2][1]}</h3>
+                  <p>{imgList[2][2]}</p>
+                </Link>
               </li>
               <li>
-                <img src={imgList[3][0]} alt="" />
-                <h3>{imgList[3][1]}</h3>
-                <p>{imgList[3][2]}</p>
+                <Link to="/detail">
+                  <img src={imgList[3][0]} alt="" />
+                  <h3>{imgList[3][1]}</h3>
+                  <p>{imgList[3][2]}</p>
+                </Link>
               </li>
               <li>
-                <img src={imgList[4][0]} alt="" />
-                <h3>{imgList[4][1]}</h3>
-                <p>{imgList[4][2]}</p>
+                <Link to="/detail">
+                  <img src={imgList[4][0]} alt="" />
+                  <h3>{imgList[4][1]}</h3>
+                  <p>{imgList[4][2]}</p>
+                </Link>
               </li>
               <li>
-                <img src={imgList[5][0]} alt="" />
-                <h3>{imgList[5][1]}</h3>
-                <p>{imgList[5][2]}</p>
+                <Link to="/detail">
+                  <img src={imgList[5][0]} alt="" />
+                  <h3>{imgList[5][1]}</h3>
+                  <p>{imgList[5][2]}</p>
+                </Link>
               </li>
             </ul>
           )}

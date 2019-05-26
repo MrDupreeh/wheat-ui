@@ -45,21 +45,38 @@ const options = [
 ];
 class Nav extends Component {
   state = {
-    text: "浙江"
+    text: "浙江",
+    user: ""
   };
+  componentDidMount() {
+    const loginMsg = sessionStorage.getItem("userName");
+    this.setState({ user: loginMsg });
+    const {text} = this.state
+    sessionStorage.setItem('address',JSON.stringify(text))
+  }
   onCascaderChange = value => {
+    sessionStorage.setItem('address',JSON.stringify(value))
     this.setState({
       text: value[1] ? value[1] : value[0]
     });
   };
   render() {
-    const { text } = this.state;
+    const { text, user } = this.state;
     return (
       <div className={"nav"}>
         <div className={"wrapper"}>
           <ul style={{ display: "flex", float: "left" }} className={"left"}>
-            <li>请登录</li>
-            <li>免费注册</li>
+            {user ? (
+              <li>你好，{user}</li>
+            ) : (
+              <div style={{ display: "flex" }}>
+                <li>
+                  <Link to="/login">请登录</Link>
+                </li>
+                <li>免费注册</li>
+              </div>
+            )}
+
             <li>
               <Cascader
                 options={options}
@@ -76,7 +93,7 @@ class Nav extends Component {
           </ul>
           <ul style={{ display: "flex", float: "right" }} className={"right"}>
             <li>
-              <Link to="/home">麦趣网首页</Link>
+              <Link to="/">麦趣网首页</Link>
             </li>
             {/* <li>
               <Icon type="shopping-cart" style={{ color: "#ffd700" }} /> 购物车

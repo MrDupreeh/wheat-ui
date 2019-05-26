@@ -10,23 +10,23 @@ class Footer extends Component {
     return (
       <div className={"wrapper footer"}>
         <div className={"linkList"}>
-          <a>关于我们</a>
+          <i>关于我们</i>
           <span />
-          <a>联系我们</a>
+          <i>联系我们</i>
           <span />
-          <a>联系客服</a>
+          <i>联系客服</i>
           <span />
-          <a>商家帮助</a>
+          <i>商家帮助</i>
           <span />
-          <a>营销中心</a>
+          <i>营销中心</i>
           <span />
-          <a>友情链接</a>
+          <i>友情链接</i>
           <span />
-          <a>销售联盟</a>
+          <i>销售联盟</i>
           <span />
-          <a>隐私政策</a>
+          <i>隐私政策</i>
           <span />
-          <a>风险监测</a>
+          <i>风险监测</i>
         </div>
         <div style={{ textAlign: "center" ,color:'#929292',marginTop:12}}>
           <p>

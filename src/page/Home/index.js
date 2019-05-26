@@ -23,10 +23,15 @@ const { TabPane } = Tabs;
 let index = 0;
 class Home extends Component {
   state = {
-    timer: null
+    timer: null,
+    user: ""
   };
   componentDidMount() {
-    this.state.timer = setInterval(this.autoPlayNews, 3000);
+    const loginMsg = sessionStorage.getItem("userName");
+    this.setState({
+      timer: setInterval(this.autoPlayNews, 3000),
+      user: loginMsg
+    });
   }
   componentWillUnmount() {
     clearInterval(this.state.timer);
@@ -38,7 +43,11 @@ class Home extends Component {
     }
     $(".newsList").css("transform", `translateY(${index * -100}px)`);
   };
+  stopA = e => {
+    e.preventDefault();
+  };
   render() {
+    const { user } = this.state;
     return (
       <div>
         <div className={"wrapper"}>
@@ -62,40 +71,65 @@ class Home extends Component {
                   src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
                   size="large"
                 />
-                <br />
-                你好，快来登录吧~
-                <br />
-                <Link to="/">
-                  <Button type="primary">登录</Button>
-                </Link>
-                <Button
-                  type="primary"
-                  style={{ marginLeft: "20px", marginTop: 12 }}
-                >
-                  注册
-                </Button>
+                  <br />
+                {user ? (
+                  <div style={{paddingTop:12}}>{user}</div>
+                ) : (
+                  <div>
+                    你好，快来登录吧~
+                    <br />
+                    <Link to="/login">
+                      <Button type="primary">登录</Button>
+                    </Link>
+                    <Button
+                      type="primary"
+                      style={{ marginLeft: "20px", marginTop: 12 }}
+                    >
+                      注册
+                    </Button>
+                  </div>
+                )}
+
                 <div className={"tab-container"} style={{ textAlign: "left" }}>
                   <Tabs defaultActiveKey="1" size="small">
                     <TabPane tab="新闻" key="1">
-                      <a href="javascript:;">影响世界的“中国时间”</a>
+                      <a href="/" onClick={this.stopA}>
+                        影响世界的“中国时间”
+                      </a>
                       <br />
-                      <a href="javascript:;">美国无明确理由否决牌照申请</a>
+                      <a href="/" onClick={this.stopA}>
+                        美国无明确理由否决牌照申请
+                      </a>
                       <br />
-                      <a href="javascript:;">博物馆文创跨界爆发年</a>
+                      <a href="/" onClick={this.stopA}>
+                        博物馆文创跨界爆发年
+                      </a>
                     </TabPane>
                     <TabPane tab="公益" key="2">
-                      <a href="javascript:;">公益机构开店全攻略</a>
+                      <a href="/" onClick={this.stopA}>
+                        公益机构开店全攻略
+                      </a>
                       <br />
-                      <a href="javascript:;">要是小悦悦还在， 小学快毕业了</a>
+                      <a href="/" onClick={this.stopA}>
+                        要是小悦悦还在， 小学快毕业了
+                      </a>
                       <br />
-                      <a href="javascript:;">公益机构开店全攻略</a>
+                      <a href="/" onClick={this.stopA}>
+                        公益机构开店全攻略
+                      </a>
                     </TabPane>
                     <TabPane tab="规则" key="3">
-                      <a href="javascript:;">新增《麦趣网抽检标准》</a>
+                      <a href="/" onClick={this.stopA}>
+                        新增《麦趣网抽检标准》
+                      </a>
                       <br />
-                      <a href="javascript:;">《麦趣禁售商品管理规则》</a>
+                      <a href="/" onClick={this.stopA}>
+                        《麦趣禁售商品管理规则》
+                      </a>
                       <br />
-                      <a href="javascript:;">《麦趣营销管理规则》</a>
+                      <a href="/" onClick={this.stopA}>
+                        《麦趣营销管理规则》
+                      </a>
                       <br />
                     </TabPane>
                   </Tabs>
