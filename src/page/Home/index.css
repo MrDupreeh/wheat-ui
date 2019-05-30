@@ -25,6 +25,7 @@
   padding: 24px;
   background-color: #fff;
   margin-bottom: 24px;
+  align-items: center; 
 }
 
 .news span {

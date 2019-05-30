@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import $ from "jquery";
-import { Icon, Statistic, Divider, InputNumber, Button } from "antd";
+import { Icon, Statistic, Divider, InputNumber, Button, Modal } from "antd";
 import SearchTab from "../../component/SearchTab";
 import video from "../../images/detail/video.mp4";
 import large1 from "../../images/detail/large1.jpg";
@@ -23,7 +23,8 @@ const deadline = Date.now() + 1000 * 60 * 60 * 16 + 1000 * 60 * 20;
 class Detail extends Component {
   state = {
     address: "北京市",
-    priceNumber: 1
+    priceNumber: 1,
+    visible: false
   };
   componentDidMount() {
     // 获取地理位置
@@ -114,13 +115,34 @@ class Detail extends Component {
       priceNumber: value
     });
   };
+  openModal = () => {
+    this.setState({
+      visible: true
+    });
+  };
+  closeModal = () => {
+    this.setState({
+      visible: false
+    });
+  };
+  addToCart = () => {
+    const { priceNumber } = this.state;
+    let str = $(".select-item.active").text();
+    let color = str.slice(0, 2);
+    let size = str.slice(2, 7);
+    const msg = {
+      priceNumber,
+      color: color,
+      size: size
+    };
+    sessionStorage.setItem("msg", JSON.stringify(msg));
+    window.location.href = "/cert";
+  };
   render() {
     const { address } = this.state;
     return (
       <div className="detail">
-        <div className="wrapper">
-          <SearchTab />
-        </div>
+        <SearchTab />
         <div className="detail-header">
           <div className="wrapper" />
         </div>
@@ -370,10 +392,27 @@ class Detail extends Component {
                       <Button type="primary" style={{ marginRight: 24 }}>
                         立即购买
                       </Button>
-                      <Button type="primary">
+                      <Button type="primary" onClick={this.openModal}>
                         <Icon type="shopping-cart" />
                         加入购物车
                       </Button>
+                      <Modal
+                        title="温馨提示"
+                        visible={this.state.visible}
+                        onOk={this.addToCart}
+                        onCancel={this.closeModal}
+                        okText="去购物车~"
+                        cancelText="知道了"
+                      >
+                        <div style={{ fontSize: 24 }}>
+                          <Icon
+                            type="check-circle"
+                            theme="twoTone"
+                            twoToneColor="#52c41a"
+                          />
+                          &nbsp;成功加入购物车
+                        </div>
+                      </Modal>
                     </dd>
                   </dl>
                 </div>

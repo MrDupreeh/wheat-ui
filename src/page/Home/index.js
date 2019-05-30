@@ -50,9 +50,7 @@ class Home extends Component {
     const { user } = this.state;
     return (
       <div>
-        <div className={"wrapper"}>
-          <SearchTab />
-        </div>
+        <SearchTab />
         <div style={{ backgroundColor: "#f5f5f5" }}>
           <div className={"wrapper"}>
             {/* banner部分 */}
@@ -71,9 +69,9 @@ class Home extends Component {
                   src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"
                   size="large"
                 />
-                  <br />
+                <br />
                 {user ? (
-                  <div style={{paddingTop:12}}>{user}</div>
+                  <div style={{ paddingTop: 12 }}>{user}</div>
                 ) : (
                   <div>
                     你好，快来登录吧~

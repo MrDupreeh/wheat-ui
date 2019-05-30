@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import $ from "jquery";
 import { Card, Tabs, Avatar, Rate } from "antd";
 import middleBannerImg from "../../images/detail/introduction/middleBanner.jpg";
 import left1 from "../../images/detail/introduction/left1.jpg";
