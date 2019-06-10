@@ -1,0 +1,10 @@
+.commodity-item:hover {
+  border: 1px solid #eee !important;
+}
+.commodity li {
+  border: 2px solid rgba(0, 0, 0, 0);
+  margin: 4px 4px;
+}
+.commodity li.active {
+  border: 2px solid #1890ff !important;
+}

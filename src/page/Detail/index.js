@@ -33,61 +33,47 @@ class Detail extends Component {
       address
     });
     // 选择图片控制器
-    $(".detail-content-left-control")
-      .find("li")
-      .click(function() {
-        $(this)
-          .addClass("active")
-          .siblings()
-          .removeClass("active");
-        let lsrc = $(this)
-          .find("img")
-          .attr("lsrc");
-        $(".detail-content-left-largeView-img img").attr("src", lsrc);
-        $(".detail-content-left-largeView-img-magnifierBox img").attr(
-          "src",
-          lsrc
-        );
-      });
+$(".detail-content-left-control").find("li")
+  .click(function() {
+    $(this).addClass("active").siblings().removeClass("active");
+    let lsrc = $(this).find("img").attr("lsrc");
+    $(".detail-content-left-largeView-img img").attr("src", lsrc);
+    $(".detail-content-left-largeView-img-magnifierBox img").attr("src",lsrc);
+  });
     // 放大镜
-    $(".detail-content-left-largeView-img").mouseenter(function() {
-      $(".magnifier").show();
-      $(".detail-content-left-largeView-img-magnifierBox").show();
-      $(this).mousemove(function(e) {
-        let x =
-          e.pageX -
-          $(".detail-content-left-largeView-img").offset().left -
-          $(".magnifier").width() / 2;
-        let y =
-          e.pageY -
-          $(".detail-content-left-largeView-img").offset().top -
-          $(".magnifier").height() / 2;
-        if (x < 0) {
-          x = 0;
-        } else if (x > $(this).width() - $(".magnifier").width()) {
-          x = $(this).width() - $(".magnifier").width();
-        }
-
-        if (y < 0) {
-          y = 0;
-        } else if (y > $(this).height() - $(".magnifier").height()) {
-          y = $(this).height() - $(".magnifier").height();
-        }
-
-        $(".magnifier").css({
-          left: x,
-          top: y
-        });
-        $(".detail-content-left-largeView-img-magnifierBox img").css({
-          left: -2 * x,
-          top: -2 * y
-        });
-      });
+$(".detail-content-left-largeView-img").mouseenter(function() {
+  $(".magnifier").show();
+  $(".detail-content-left-largeView-img-magnifierBox").show();
+  $(this).mousemove(function(e) {
+    let x =
+      e.pageX -
+      $(".detail-content-left-largeView-img").offset().left -
+      $(".magnifier").width() / 2;
+    let y =
+      e.pageY -
+      $(".detail-content-left-largeView-img").offset().top -
+      $(".magnifier").height() / 2;
+    if (x < 0) {
+      x = 0;
+    } else if (x > $(this).width() - $(".magnifier").width()) {
+      x = $(this).width() - $(".magnifier").width();
+    }
+    if (y < 0) {
+      y = 0;
+    } else if (y > $(this).height() - $(".magnifier").height()) {
+      y = $(this).height() - $(".magnifier").height();
+    }
+    $(".magnifier").css({ left: x, top: y });
+    $(".detail-content-left-largeView-img-magnifierBox img").css({
+      left: -2 * x,
+      top: -2 * y
     });
-    $(".detail-content-left-largeView-img").mouseleave(function() {
-      $(".magnifier").hide();
-      $(".detail-content-left-largeView-img-magnifierBox").hide();
-    });
+  });
+});
+$(".detail-content-left-largeView-img").mouseleave(function() {
+  $(".magnifier").hide();
+  $(".detail-content-left-largeView-img-magnifierBox").hide();
+});
     // 购买详情选择
     $(".select-item").click(function() {
       //可以不选择白条
@@ -163,64 +149,43 @@ class Detail extends Component {
         </div>
         <div className="wrapper">
           <div className="detail-content">
-            <div className="detail-content-left">
-              <div className="detail-content-left-largeView">
-                <div className="detail-content-left-largeView-video">
-                  <video
-                    src={video}
-                    controls="controls"
-                    height="448px"
-                    width="448px"
-                    autoPlay="autoplay"
-                  />
-                  <div
-                    style={{
-                      backgroundColor: "#ffffff",
-                      width: 20,
-                      height: 20,
-                      position: "absolute",
-                      top: 0,
-                      right: 0,
-                      textAlign: "center"
-                    }}
-                  >
-                    <Icon type="close" onClick={this.closeVideo} />
-                  </div>
-                </div>
-                <div className="detail-content-left-largeView-img">
-                  <div className="magnifier" />
-                  <Icon
-                    type="play-circle"
-                    theme="twoTone"
-                    style={{
-                      position: "absolute",
-                      bottom: 20,
-                      left: 20,
-                      fontSize: 30
-                    }}
-                    onClick={this.playVideo}
-                  />
-                  <img src={large1} alt="" width={448} height={448} />
-                </div>
-                <div className="detail-content-left-largeView-img-magnifierBox">
-                  <img src={large1} alt="" width={896} height={896} />
-                </div>
-              </div>
-              <ul className="detail-content-left-control">
-                <li className="active">
-                  <img src={small1} lsrc={large1} alt="" />
-                </li>
-                <li>
-                  <img src={small2} lsrc={large2} alt="" />
-                </li>
-                <li>
-                  <img src={small3} lsrc={large3} alt="" />
-                </li>
-                <li>
-                  <img src={small4} lsrc={large4} alt="" />
-                </li>
-              </ul>
-            </div>
+<div className="detail-content-left">
+  <div className="detail-content-left-largeView">
+    <div className="detail-content-left-largeView-video">
+      <video src={video} controls="controls" height="448px" width="448px" autoPlay="autoplay"/>
+      <div className={'detail-content-left-largeView-video-close'}>
+        <Icon type="close" onClick={this.closeVideo} />
+      </div>
+    </div>
+    <div className="detail-content-left-largeView-img">
+      <div className="magnifier" />
+      <Icon
+        type="play-circle"
+        theme="twoTone"
+        style={{ position: "absolute", bottom: 20, left: 20, fontSize: 30 }}
+        onClick={this.playVideo}
+      />
+      <img src={large1} alt="" width={448} height={448} />
+    </div>
+    <div className="detail-content-left-largeView-img-magnifierBox">
+      <img src={large1} alt="" width={896} height={896} />
+    </div>
+  </div>
+  <ul className="detail-content-left-control">
+    <li className="active">
+      <img src={small1} lsrc={large1} alt="" />
+    </li>
+    <li>
+      <img src={small2} lsrc={large2} alt="" />
+    </li>
+    <li>
+      <img src={small3} lsrc={large3} alt="" />
+    </li>
+    <li>
+      <img src={small4} lsrc={large4} alt="" />
+    </li>
+  </ul>
+</div>
             <div className="detail-content-right">
               <h3 style={{ fontWeight: "bold" }}>
                 <span

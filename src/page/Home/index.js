@@ -46,6 +46,10 @@ class Home extends Component {
   stopA = e => {
     e.preventDefault();
   };
+  logOut = () => {
+    sessionStorage.removeItem("userName");
+    window.location.href = "/login";
+  };
   render() {
     const { user } = this.state;
     return (
@@ -71,7 +75,13 @@ class Home extends Component {
                 />
                 <br />
                 {user ? (
-                  <div style={{ paddingTop: 12 }}>{user}</div>
+                  <div style={{ paddingTop: 12 }}>
+                    {user}
+                    <br />
+                    <Button type="primary" onClick={this.logOut}>
+                      退出登录
+                    </Button>
+                  </div>
                 ) : (
                   <div>
                     你好，快来登录吧~
@@ -79,12 +89,14 @@ class Home extends Component {
                     <Link to="/login">
                       <Button type="primary">登录</Button>
                     </Link>
-                    <Button
-                      type="primary"
-                      style={{ marginLeft: "20px", marginTop: 12 }}
-                    >
-                      注册
-                    </Button>
+                    <Link to="/register">
+                      <Button
+                        type="primary"
+                        style={{ marginLeft: "20px", marginTop: 12 }}
+                      > 
+                        注册
+                      </Button>
+                    </Link>
                   </div>
                 )}
 

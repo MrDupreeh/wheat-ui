@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import imgFooter1 from '../../images/footer/1.png'
-import imgFooter2 from '../../images/footer/2.png'
-import imgFooter3 from '../../images/footer/3.png'
-import imgFooter4 from '../../images/footer/4.png'
-import imgFooter5 from '../../images/footer/5.png'
+import imgFooter1 from "../../images/footer/1.png";
+import imgFooter2 from "../../images/footer/2.png";
+import imgFooter3 from "../../images/footer/3.png";
+import imgFooter4 from "../../images/footer/4.png";
+import imgFooter5 from "../../images/footer/5.png";
 import "./index.css";
 class Footer extends Component {
   render() {
@@ -28,7 +28,7 @@ class Footer extends Component {
           <span />
           <i>风险监测</i>
         </div>
-        <div style={{ textAlign: "center" ,color:'#929292',marginTop:12}}>
+        <div style={{ textAlign: "center", color: "#929292", marginTop: 12 }}>
           <p>
             京公网安备 123456789123号
             <span />
@@ -52,29 +52,31 @@ class Footer extends Component {
             网络文化经营许可证京网文[2014]2148-348号
           </p>
         </div>
-        <div style={{display:'flex',justifyContent:'center',marginTop:24}}>
-            <ul>
-                <li>
-                    <img src={imgFooter1} alt=''/>
-                    可信网站信用评价
-                </li>
-                <li>
-                    <img src={imgFooter2} alt=''/>
-                    网络警察提醒您
-                </li>
-                <li>
-                    <img src={imgFooter3} alt=''/>
-                    诚信网站
-                </li>
-                <li>
-                    <img src={imgFooter4} alt=''/>
-                    中国互联网举报中心
-                </li>
-                <li>
-                    <img src={imgFooter5} alt=''/>
-                    网络举报APP下载
-                </li>
-            </ul>
+        <div
+          style={{ display: "flex", justifyContent: "center", marginTop: 24 }}
+        >
+          <ul>
+            <li>
+              <img src={imgFooter1} alt="" />
+              可信网站信用评价
+            </li>
+            <li>
+              <img src={imgFooter2} alt="" />
+              网络警察提醒您
+            </li>
+            <li>
+              <img src={imgFooter3} alt="" />
+              诚信网站
+            </li>
+            <li>
+              <img src={imgFooter4} alt="" />
+              中国互联网举报中心
+            </li>
+            <li>
+              <img src={imgFooter5} alt="" />
+              网络举报APP下载
+            </li>
+          </ul>
         </div>
       </div>
     );

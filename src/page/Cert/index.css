@@ -1,27 +1,39 @@
-.cert-guessLike{
-
-    display: flex;
-    width: 840px;
-    margin: 24px auto 0;
+.cert {
+  background-color: #f5f5f5;
+  padding: 24px 0;
+  margin-bottom: 24px;
 }
-.cert-guessLike h2{
-    color:#ffd700;
-    margin-right: 20px;
+.cert .table-footer {
+  display: flex;
+  justify-content: space-between;
 }
-.cert-guessLike h5{
-    word-break: break-all;
-    height: 72px;
+.cert .table-footer .total-price {
+  font-size: 18px;
+  color: #ff0000;
 }
-.cert-guessLike div{
-    border: 2px dashed #eee;
-    padding: 24px;
-    background-color: #fff;
+.cert-guessLike {
+  display: flex;
+  width: 840px;
+  margin: 24px auto 0;
 }
-.cert-guessLike div p{
-    color:#ff0000;
-    text-align: center;
-    margin: 0;
+.cert-guessLike h2 {
+  color: #ffd700;
+  margin-right: 20px;
 }
-.cert-guessLike div:hover{
-    border: 2px solid #ffd700;
+.cert-guessLike h5 {
+  word-break: break-all;
+  height: 72px;
+}
+.cert-guessLike div {
+  border: 2px dashed #eee;
+  padding: 24px;
+  background-color: #fff;
+}
+.cert-guessLike div p {
+  color: #ff0000;
+  text-align: center;
+  margin: 0;
+}
+.cert-guessLike div:hover {
+  border: 2px solid #ffd700;
 }

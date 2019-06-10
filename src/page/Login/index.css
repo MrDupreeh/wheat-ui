@@ -1,23 +1,11 @@
-.login h1 {
-    display: inline-block;
-    margin: 0;
-}
-
-.login-tips {
-    background-color: #fff8f0;
-    padding: 10px 0;
-}
-
+.login h1 { display: inline-block; margin: 0; }
+.login-tips { background-color: #fff8f0; padding: 10px 0; }
 .login-main {
     height: 600px;
-    background: url(../../images/login/bg.jpg) no-repeat top center;
+    background: url(../../images/login/bg.jpg) top center no-repeat ;
     margin-bottom: 24px;
 }
-
-.login-main .wrapper {
-    position: relative;
-}
-
+.login-main .wrapper { position: relative; }
 .loginBox {
     right: 130px;
     position: absolute;
@@ -27,11 +15,7 @@
     background-color: #fff;
     padding: 24px;
 }
-
-.loginBox h3 {
-    margin-bottom: 24px;
-}
-
+.loginBox h3 { margin-bottom: 24px; }
 .loginBox .loginBox-btn {
     display: block;
     margin: 0 auto;

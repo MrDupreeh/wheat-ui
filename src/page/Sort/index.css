@@ -1,0 +1,16 @@
+.sort .wrapper{
+    transition: all 3s;
+}
+.sideBar-item{
+    margin: 8px 0;
+    width: 40px;
+    height: 40px;
+    background-color: #eee;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+}
+.sideBar-item img{
+    width: 24px;
+    height: 24px;
+}

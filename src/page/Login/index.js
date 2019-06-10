@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Logo from "../../images/logo.png";
+import { Link } from "react-router-dom";
 import { Icon, Input, Button, Checkbox, message, Spin } from "antd";
 import Footer from "../../component/Footer";
 import "./index.css";
@@ -22,7 +23,6 @@ class Login extends Component {
   };
   validateLogin = () => {
     const { username, password } = this.state;
-
     if (username === "admin" && password === "123456") {
       this.setState({
         loading: true,
@@ -32,7 +32,6 @@ class Login extends Component {
           window.location.href = "http://localhost:3000/";
         }, 2000)
       });
-
     } else if (username !== "admin" || password !== "123456") {
       message.error("用户名或密码错误");
     }
@@ -49,9 +48,9 @@ class Login extends Component {
   passwordChange = e => {
     this.setState({ password: e.target.value });
   };
-  stopA= e=>{
-    e.preventDefault()
-  }
+  stopA = e => {
+    e.preventDefault();
+  };
   render() {
     const {
       username,
@@ -66,7 +65,9 @@ class Login extends Component {
       <div className={"login"}>
         <div className={"wrapper"}>
           <div style={{ display: "flex", alignItems: "center" }}>
-            <img src={Logo} alt="" />
+            <Link to="/">
+              <img src={Logo} alt="" />
+            </Link>
             <h1>欢迎登录</h1>
           </div>
         </div>
@@ -156,8 +157,12 @@ class Login extends Component {
                     marginTop: 44
                   }}
                 >
-                  <a href='/' onClick={this.stopA}>忘记密码</a>
-                  <a href='/' style={{ marginRight: 12 }} onClick={this.stopA}>立即注册</a>
+                  <a href="/" onClick={this.stopA}>
+                    忘记密码
+                  </a>
+                  <a href="/register" style={{ marginRight: 12 }}>
+                    立即注册
+                  </a>
                 </div>
               </div>
             </div>

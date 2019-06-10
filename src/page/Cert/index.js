@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Table, InputNumber, Button, Popconfirm, Icon } from "antd";
+import { Link } from "react-router-dom";
 import SearchTab from "../../component/SearchTab";
 import production1 from "../../images/cert/production1.jpg";
 import production2 from "../../images/cert/production2.jpg";
@@ -67,15 +68,14 @@ class Cert extends Component {
     selectedPrice: 0,
     selectedList: []
   };
-  onSelectChange = (selectedRowKeys, value) => {
-    console.log(value, "value");
-    let selectedPrice = 0;
-    for (let i = 0; i < value.length; i++) {
-      selectedPrice += parseFloat(value[i].number * value[i].price);
-    }
-    selectedPrice = parseFloat(selectedPrice).toFixed(2);
-    this.setState({ selectedRowKeys, selectedPrice, selectedList: value });
-  };
+onSelectChange = (selectedRowKeys, value) => {
+  let selectedPrice = 0;
+  for (let i = 0; i < value.length; i++) {
+    selectedPrice += parseFloat(value[i].number * value[i].price);
+  }
+  selectedPrice = parseFloat(selectedPrice).toFixed(2);
+  this.setState({ selectedRowKeys, selectedPrice, selectedList: value });
+};
   renderProduct = data => {
     return (
       <div style={{ display: "flex", width: 400 }}>
@@ -133,24 +133,24 @@ class Cert extends Component {
     const subtotal = parseFloat(data.price * data.number).toFixed(2);
     return <div>￥{subtotal}</div>;
   };
-  confirmDelete = id => {
-    let { dataLists, selectedList, selectedRowKeys } = this.state;
-    for (let i = 0; i < selectedList.length; i++) {
-      if (selectedList[i].id === id) {
-        selectedList.splice(i, 1);
-      }
+confirmDelete = id => {
+  let { dataLists, selectedList, selectedRowKeys } = this.state;
+  for (let i = 0; i < selectedList.length; i++) {
+    if (selectedList[i].id === id) {
+      selectedList.splice(i, 1);
     }
-    for (let j = 0; j < dataLists.length; j++) {
-      if (dataLists[j].id === id) {
-        dataLists.splice(j, 1);
-      }
+  }
+  for (let j = 0; j < dataLists.length; j++) {
+    if (dataLists[j].id === id) {
+      dataLists.splice(j, 1);
     }
-    this.setState({
-      dataLists,
-      selectedList
-    });
-    this.onSelectChange(selectedRowKeys, selectedList);
-  };
+  }
+  this.setState({
+    dataLists,
+    selectedList
+  });
+  this.onSelectChange(selectedRowKeys, selectedList);
+};
   render() {
     const { selectedRowKeys } = this.state;
     const columns = [
@@ -215,6 +215,7 @@ class Cert extends Component {
             padding: "24px 0",
             marginBottom: 24
           }}
+          className={'cert'}
         >
           <div className="wrapper">
             <Table
@@ -224,16 +225,19 @@ class Cert extends Component {
               rowKey="id"
               style={{ backgroundColor: "#fff", marginBottom: 24 }}
             />
-            <div style={{ display: "flex", justifyContent: "space-between" }}>
+            <div className={'table-footer'}>
               <div>已选择{selectedRowKeys.length}件商品</div>
               <div>
                 总价：
-                <span style={{ fontSize: 18, color: "#ff0000" }}>
+                <span className={'total-price'}>
                   ￥{selectedPrice}
                 </span>
+                <Link to='/order'>
+                
                 <Button type="primary" style={{ marginLeft: 16 }}>
                   去结算
                 </Button>
+                </Link>
               </div>
             </div>
             <div className="cert-guessLike">

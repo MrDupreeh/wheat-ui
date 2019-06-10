@@ -41,10 +41,13 @@ class MenuList extends Component {
         .fadeOut();
     });
   }
+  goSort = () => {
+    window.location.href = "/sort";
+  };
   render() {
     return (
       <div className={"menu"}>
-        <ul className={"menuList"}>
+        <ul className={"menuList"} onClick={this.goSort}>
           <li>
             女装 / 男装 / 内衣
             <span style={{ float: "right" }}>></span>

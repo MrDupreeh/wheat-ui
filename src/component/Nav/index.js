@@ -54,55 +54,46 @@ class Nav extends Component {
     const {text} = this.state
     sessionStorage.setItem('address',JSON.stringify(text))
   }
-  onCascaderChange = value => {
-    sessionStorage.setItem('address',JSON.stringify(value))
-    this.setState({
-      text: value[1] ? value[1] : value[0]
-    });
-  };
+onCascaderChange = value => {
+  sessionStorage.setItem('address',JSON.stringify(value))
+  this.setState({
+    text: value[1] ? value[1] : value[0]
+  });
+};
   render() {
     const { text, user } = this.state;
     return (
-      <div className={"nav"}>
-        <div className={"wrapper"}>
-          <ul style={{ display: "flex", float: "left" }} className={"left"}>
-            {user ? (
-              <li>你好，{user}</li>
-            ) : (
-              <div style={{ display: "flex" }}>
-                <li>
-                  <Link to="/login">请登录</Link>
-                </li>
-                <li>免费注册</li>
-              </div>
-            )}
-
-            <li>
-              <Cascader
-                options={options}
-                onChange={this.onCascaderChange}
-                changeOnSelect
-              >
-                <span style={{ cursor: "pointer" }}>
-                  {text}
-                  &nbsp;
-                  <Icon type="down" />
-                </span>
-              </Cascader>
-            </li>
-          </ul>
-          <ul style={{ display: "flex", float: "right" }} className={"right"}>
-            <li>
-              <Link to="/">麦趣网首页</Link>
-            </li>
-            {/* <li>
-              <Icon type="shopping-cart" style={{ color: "#ffd700" }} /> 购物车
-            </li> */}
-            <li>个人中心</li>
-            <li>麦趣会员</li>
-          </ul>
+<div className={"nav"}>
+  <div className={"wrapper"}>
+    <ul className={"left"}>
+      {user ? (
+        <li>你好，{user}</li>
+      ) : (
+        <div style={{ display: "flex" }}>
+          <li><Link to="/login">请登录</Link></li>
+          <li><Link to="/register">免费注册</Link></li>
         </div>
-      </div>
+      )}
+      <li>
+        <Cascader
+          options={options}
+          onChange={this.onCascaderChange}
+          changeOnSelect
+        >
+          <span style={{ cursor: "pointer" }}>
+            {text}&nbsp;
+            <Icon type="down" />
+          </span>
+        </Cascader>
+      </li>
+    </ul>
+    <ul className={"right"}>
+      <li><Link to="/">麦趣网首页</Link></li>
+      <li>个人中心</li>
+      <li>麦趣会员</li>
+    </ul>
+  </div>
+</div>
     );
   }
 }

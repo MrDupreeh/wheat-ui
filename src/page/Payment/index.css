@@ -1,0 +1,28 @@
+.payment {
+  background: url(../../images/payment/pc_icon_payment-bg.jpg);
+}
+.payment h1 {
+  display: inline-block;
+  margin: 0;
+}
+.payment .bank {
+  display: flex;
+  align-items: center;
+  margin: 0 0 16px;
+  border-bottom: 1px solid #eee;
+  padding: 14px 18px;
+}
+.payment .bank.active {
+  box-shadow: 0 0 6px rgba(10, 22, 57, 0.13);
+}
+.payment .duigou {
+  font-size: 24px;
+  margin-right: 24px;
+  visibility: hidden;
+}
+.payment .duigou.active {
+  visibility: visible;
+}
+.payment .code img{
+    display: none;
+}

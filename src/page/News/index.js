@@ -134,20 +134,20 @@ const data1 = [
   }
 ];
 class News extends Component {
-  state = {
-    newsList: []
-  };
-  componentDidMount() {
-    this.setState({ newsList: data });
+state = {
+  newsList: []
+};
+componentDidMount() {
+  this.setState({ newsList: data });
+}
+onLoadMore = () => {
+  let { newsList } = this.state;
+  for (var i = 1; i < 6; i++) {
+    const j = Math.ceil(Math.random() * 8);
+    newsList.push(data[j]);
   }
-  onLoadMore = () => {
-    let { newsList } = this.state;
-    for (var i = 1; i < 6; i++) {
-      const j = Math.ceil(Math.random() * 8);
-      newsList.push(data[j]);
-    }
-    this.setState({ newsList });
-  };
+  this.setState({ newsList });
+};
   onTabsChange = activeKey => {
     if (activeKey === "1") {
       this.setState({ newsList: data });
@@ -382,73 +382,43 @@ class News extends Component {
               >
                 今日热门
               </div>
-              <img
-                src={imgRanking}
-                alt=""
-                width="282px"
-                height="200px"
-                style={{ margin: "12px 0" }}
+              <img src={imgRanking} alt="" width="282px" height="200px" style={{ margin: "12px 0" }}
               />
               <div className={"newsRankingItem"}>
                 <h4>1 &nbsp;MT大白洗碗机测评：用了就再也回不去了</h4>
-                <p
-                  style={{
-                    whiteSpace: "nowrap",
-                    textOverflow: "ellipsis",
-                    overflow: "hidden"
-                  }}
-                >
+                <p>
                   洗碗——每个家庭每天都要面临这项简单却又乏味的家务活儿，不知从什么时候开始，家里就已经约定俗成了一个规矩，吃饭吃到最后得人就要光荣的完成洗碗的任务，这也让我练就了囫囵吞枣般吃饭的惊人能力。
                 </p>
+                <div style={{textAlign:'right'}}><Icon type="eye" /> 6623</div>
               </div>
               <div className={"newsRankingItem"}>
                 <h4>2 &nbsp;我与MT大白洗碗机的蜗居生活</h4>
-                <p
-                  style={{
-                    whiteSpace: "nowrap",
-                    textOverflow: "ellipsis",
-                    overflow: "hidden"
-                  }}
-                >
+                <p>
                   在奋斗中的年轻人，每天都是奔赴在令自己和家人过得更好的路上，哪还有时间洗碗。年轻人，不洗碗，请把时间浪费在美好的事物上，看看刚毕业的大学生陆海，是怎样通过MT大白洗碗机节约宝贵时间，走上人生巅峰的！
                 </p>
+                <div style={{textAlign:'right'}}><Icon type="eye" /> 3250</div>
               </div>
               <div className={"newsRankingItem"}>
                 <h4>3 &nbsp;双11手机&配件预售会场满减大促</h4>
-                <p
-                  style={{
-                    whiteSpace: "nowrap",
-                    textOverflow: "ellipsis",
-                    overflow: "hidden"
-                  }}
-                >
+                <p>
                   双11手机&配件预售会场 iPhone
                   XR/XS满8000-600、满5000-300，整点领满2980减450、满1980减300多档购物券
                 </p>
+                <div style={{textAlign:'right'}}><Icon type="eye" /> 2340</div>
               </div>
               <div className={"newsRankingItem"}>
                 <h4>4 &nbsp;【早报】小米魅族今天发新机，你怎么选？</h4>
-                <p
-                  style={{
-                    whiteSpace: "nowrap",
-                    textOverflow: "ellipsis",
-                    overflow: "hidden"
-                  }}
-                >
+                <p>
                   洗碗——每个家庭每天都要面临这项简单却又乏味的家务活儿，不知从什么时候开始，家里就已经约定俗成了一个规矩，吃饭吃到最后得人就要光荣的完成洗碗的任务，这也让我练就了囫囵吞枣般吃饭的惊人能力。
                 </p>
+                <div style={{textAlign:'right'}}><Icon type="eye" /> 1010</div>
               </div>
               <div className={"newsRankingItem"}>
                 <h4>5 &nbsp;新版手机天猫上线！逛街时可以摇出红包</h4>
-                <p
-                  style={{
-                    whiteSpace: "nowrap",
-                    textOverflow: "ellipsis",
-                    overflow: "hidden"
-                  }}
-                >
+                <p>
                   新版手机天猫上线！逛街时可以摇出红包！赶
                 </p>
+                <div style={{textAlign:'right'}}><Icon type="eye" /> 888</div>
               </div>
             </div>
           </div>
@@ -459,3 +429,4 @@ class News extends Component {
   }
 }
 export default News;
+ 

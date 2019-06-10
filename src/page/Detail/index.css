@@ -26,12 +26,8 @@
   margin: 12px 12px;
   border: 2px solid #ffffff;
 }
-.detail-content-left li.active {
-  border: 2px solid #ffd700;
-}
-.detail-content-left li:hover {
-  border: 2px solid #ffd700;
-}
+.detail-content-left li.active { border: 2px solid #ffd700; }
+.detail-content-left li:hover { border: 2px solid #ffd700; }
 .detail-content-left-largeView {
   position: relative;
   height: 450px;
@@ -41,6 +37,15 @@
 .detail-content-left-largeView-video {
   display: none;
   z-index: 100;
+}
+.detail-content-left-largeView-video-close {
+  background-color: #ffffff;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-align: center;
 }
 .detail-content-left-largeView-img {
   width: 448px;
@@ -67,9 +72,7 @@
   overflow: hidden;
   display: none;
 }
-.detail-content-left-largeView-img-magnifierBox img {
-  position: absolute;
-}
+.detail-content-left-largeView-img-magnifierBox img { position: absolute; }
 /* 内容区域右侧 */
 .detail-content-right {
   margin-left: 16px;
@@ -116,33 +119,33 @@
 .detail-content-right-supportMsg {
   padding: 24px 24px 0;
 }
-.detail-content-right-select{
-    padding: 0 24px;
+.detail-content-right-select {
+  padding: 0 24px;
 }
 /* 颜色选择 */
-.select-item{
+.select-item {
   cursor: pointer;
   margin-right: 16px;
   border: 1px solid #dddddd;
   height: 44px;
 }
-.select-item.active{
-  border:2px solid #1890ff;
+.select-item.active {
+  border: 2px solid #1890ff;
 }
-.detail-content-right-select dd{
+.detail-content-right-select dd {
   display: flex;
 }
-.detail-content-right-select-colorItem{
-  width:  79px;
+.detail-content-right-select-colorItem {
+  width: 79px;
   height: 44px;
   padding: 2px;
 }
-.detail-content-right-select-colorItem img{
+.detail-content-right-select-colorItem img {
   width: 38px;
   vertical-align: center;
 }
 /* 版本选择 */
-.detail-content-right-select .edition{
+.detail-content-right-select .edition {
   padding: 0 12px;
   line-height: 44px;
 }
